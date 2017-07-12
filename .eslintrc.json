@@ -3,5 +3,9 @@
   "env": {
     "browser": true,
     "jest": true
+  },
+  "rules": {
+    "jsx-a11y/media-has-caption": 0,
+    "react/jsx-filename-extension": 0
   }
 }
