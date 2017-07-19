@@ -11,6 +11,22 @@ const hasGetUserMedia = () => {
   return !!navigator.mediaDevices.getUserMedia;
 };
 
+const styles = {
+  container: {
+    position: 'relative',
+  },
+  button: {
+    position: 'absolute',
+    bottom: '3em',
+    left: '0.5em',
+    color: '#ffffff',
+    backgroundColor: '#5dade2',
+    padding: '0.5em 1.5em',
+    fontSize: '1em',
+    fontWeight: 'bold',
+  },
+};
+
 class ImageCapture extends Component {
   constructor(props) {
     super(props);
@@ -62,13 +78,18 @@ class ImageCapture extends Component {
       buttonTitle,
       height,
       width,
+      customStyles: {
+        container: containerStyle = styles.container,
+        button: buttonStyle = styles.button,
+      } = styles,
     } = this.props;
     return (
-      <div>
+      <div style={containerStyle}>
         <video ref={(video) => { this.video = video; }} width={width} height={height} />
         <button
           ref={(button) => { this.button = button; }}
           onClick={this.takePicture}
+          style={buttonStyle}
         >
           {buttonTitle}
         </button>
@@ -81,12 +102,14 @@ class ImageCapture extends Component {
 
 ImageCapture.defaultProps = {
   buttonTitle: 'Take picture',
+  customStyles: styles,
   height: DEFAULT_HEIGHT,
   width: DEFAULT_WIDTH,
 };
 
 ImageCapture.propTypes = {
   buttonTitle: PropTypes.string,
+  customStyles: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   height: PropTypes.number,
   takePicture: PropTypes.func.isRequired,
   width: PropTypes.number,
