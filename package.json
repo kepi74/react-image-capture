@@ -11,7 +11,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "rimraf": "^2.6.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -21,6 +22,22 @@
     "eslint-plugin-react": "^7.0.1"
   },
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist"
-  }
+  },
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kepi74/react-image-capture.git"
+  },
+  "keywords": [
+    "WebRTC",
+    "React"
+  ],
+  "author": "Pavel Kepka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kepi74/react-image-capture/issues"
+  },
+  "homepage": "https://github.com/kepi74/react-image-capture#readme"
 }
